@@ -80,12 +80,13 @@ export default function DetailsSection({ bismillah, invitationText, bride, groom
           {bride.fullName && (
             <h3
               style={{
-                fontFamily: "'Alex Brush', cursive",
-                fontSize: 'clamp(2.5rem, 8vw, 3rem)',
-                lineHeight: 1.15,
+                fontFamily: "'Playfair Display', 'Times New Roman', Georgia, serif",
+                fontSize: 'clamp(1.9rem, 7vw, 2.4rem)',
+                lineHeight: 1.2,
                 color: '#33252a',
                 margin: '0 0 4px 0',
-                fontWeight: 400,
+                fontWeight: 700,
+                letterSpacing: '0.03em',
               }}
             >
               {bride.fullName}
@@ -110,12 +111,13 @@ export default function DetailsSection({ bismillah, invitationText, bride, groom
             <p
               style={{
                 margin: '8px 0 0 0',
-                fontFamily: "'Montserrat', sans-serif",
-                fontSize: '0.76rem',
-                color: '#9a6976',
-                textTransform: 'uppercase',
-                letterSpacing: '1.5px',
+                fontFamily: "'Playfair Display', 'Times New Roman', Georgia, serif",
+                fontSize: '0.9rem',
+                color: '#7a4a56',
+                textTransform: 'none',
+                letterSpacing: '0.08em',
                 fontWeight: 700,
+                fontStyle: 'italic',
               }}
             >
               {bride.relation || 'Daughter of'}
@@ -195,12 +197,13 @@ export default function DetailsSection({ bismillah, invitationText, bride, groom
           </span>
           <h3
             style={{
-              fontFamily: "'Alex Brush', cursive",
-              fontSize: 'clamp(2.5rem, 8vw, 3rem)',
-              lineHeight: 1.15,
+              fontFamily: "'Playfair Display', 'Times New Roman', Georgia, serif",
+              fontSize: 'clamp(1.9rem, 7vw, 2.4rem)',
+              lineHeight: 1.2,
               color: '#33252a',
               margin: '0 0 4px 0',
-              fontWeight: 400,
+              fontWeight: 700,
+              letterSpacing: '0.03em',
             }}
           >
             {groom.fullName}
@@ -238,12 +241,13 @@ export default function DetailsSection({ bismillah, invitationText, bride, groom
           <p
             style={{
               margin: '8px 0 0 0',
-              fontFamily: "'Montserrat', sans-serif",
-              fontSize: '0.76rem',
-              color: '#9a6976',
-              textTransform: 'uppercase',
-              letterSpacing: '1.5px',
-              fontWeight: '600',
+              fontFamily: "'Playfair Display', 'Times New Roman', Georgia, serif",
+              fontSize: '0.9rem',
+              color: '#7a4a56',
+              textTransform: 'none',
+              letterSpacing: '0.08em',
+              fontWeight: '700',
+              fontStyle: 'italic',
             }}
           >
             {groom.relation || 'Son of'}

@@ -85,8 +85,8 @@ export const invitationData = {
     subtitle: "Join us as we step into our forever",
     yesText: "I’LL BE THERE",
     noText: "WILL MISS IT",
-    yesWhatsappUrl: "https://api.whatsapp.com/send/?phone=919553988326&text=Assalamu+Alaikum!+I'll+be+there+to+celebrate+the+wedding+of+Adiba+Noorin+%26+Mohammed+Mujeeb+Ahmed,+In+shaa+Allah.&type=phone_number&app_absent=0",
-    noWhatsappUrl: "https://api.whatsapp.com/send/?phone=919553988326&text=Assalamu+Alaikum!+Sorry,+I+won't+be+able+to+attend+the+wedding+of+Adiba+Noorin+%26+Mohammed+Mujeeb+Ahmed.+Congratulations+and+best+wishes!&type=phone_number&app_absent=0",
+    yesWhatsappUrl: "https://api.whatsapp.com/send/?phone=919553988326&text=Hey!+I'll+be+there+to+celebrate+your+special+day.+Looking+forward+to+it!+%E2%9D%A4%EF%B8%8F&type=phone_number&app_absent=0",
+    noWhatsappUrl: "https://api.whatsapp.com/send/?phone=919553988326&text=Hey!+Sorry,+I+won't+be+able+to+make+it+to+your+special+day.+Sending+my+heartfelt+congratulations+and+best+wishes+to+you+both!+%E2%9D%A4%EF%B8%8F&type=phone_number&app_absent=0",
   },
 
   // Best Compliments
