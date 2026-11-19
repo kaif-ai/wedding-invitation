@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import invitationData from './data/invitationData';
+import valimaData from './data/valimaData';
 import HeroSection from './components/HeroSection';
 import MusicToggle from './components/MusicToggle';
 import DetailsSection from './components/DetailsSection';
@@ -42,8 +42,8 @@ export default function App() {
 
   // Dynamic document title
   useEffect(() => {
-    if (invitationData.bride?.fullName && invitationData.groom?.fullName) {
-      document.title = `${invitationData.bride.fullName} & ${invitationData.groom.fullName} | Wedding Invitation`;
+    if (valimaData.bride?.fullName && valimaData.groom?.fullName) {
+      document.title = `${valimaData.bride.fullName} & ${valimaData.groom.fullName} | Valima Invitation`;
     }
   }, []);
 
@@ -62,17 +62,14 @@ export default function App() {
         rootMargin: '0px 0px -40px 0px',
       }
     );
-
     const animatedElements = document.querySelectorAll('.scroll-animate, .stagger-anim');
     animatedElements.forEach((el) => observer.observe(el));
-
     return () => observer.disconnect();
   }, []);
 
   // Floating heart effect on tap/click
   useEffect(() => {
     const handleTap = (e) => {
-      // Don't spawn heart on clickable buttons/canvases if preferred, or spawn everywhere
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
@@ -86,7 +83,6 @@ export default function App() {
         heart.remove();
       }, 1000);
     };
-
     window.addEventListener('click', handleTap);
     return () => window.removeEventListener('click', handleTap);
   }, []);
@@ -101,7 +97,7 @@ export default function App() {
         preload="auto"
         playsInline
       >
-        <source src={invitationData.media.audio} type="audio/mpeg" />
+        <source src={valimaData.media.audio} type="audio/mpeg" />
       </audio>
 
       {/* Floating Music Button (appears once invitation is opened) */}
@@ -111,55 +107,55 @@ export default function App() {
 
       {/* Hero Section */}
       <HeroSection
-        videoSrc={invitationData.media.curtainVideo}
-        bismillah={invitationData.bismillah}
+        videoSrc={valimaData.media.curtainVideo}
+        bismillah={valimaData.bismillah}
         onOpenInvitation={handleOpenInvitation}
       />
 
       {/* Details Section */}
       <DetailsSection
-        bismillah={invitationData.bismillah}
-        invitationText={invitationData.invitationText}
-        bride={invitationData.bride}
-        groom={invitationData.groom}
-        hadith={invitationData.hadith}
+        bismillah={valimaData.bismillah}
+        invitationText={valimaData.invitationText}
+        bride={valimaData.bride}
+        groom={valimaData.groom}
+        hadith={valimaData.hadith}
       />
 
       {/* Countdown Section with Heart Scratch Cards */}
       <CountdownSection
-        videoSrc={invitationData.media.countdownVideo}
-        bgImage={invitationData.media.backgroundImage}
-        scratchCards={invitationData.scratchAndCountdown.cards}
-        discoverText={invitationData.scratchAndCountdown.discoverText}
-        revealButtonText={invitationData.scratchAndCountdown.revealButtonText}
-        targetDate={invitationData.scratchAndCountdown.targetDate}
-        displayDate={invitationData.scratchAndCountdown.displayDate}
+        videoSrc={valimaData.media.countdownVideo}
+        bgImage={valimaData.media.backgroundImage}
+        scratchCards={valimaData.scratchAndCountdown.cards}
+        discoverText={valimaData.scratchAndCountdown.discoverText}
+        revealButtonText={valimaData.scratchAndCountdown.revealButtonText}
+        targetDate={valimaData.scratchAndCountdown.targetDate}
+        displayDate={valimaData.scratchAndCountdown.displayDate}
       />
 
-      {/* Events & Venues Section */}
-      <EventsSection events={invitationData.events} />
+      {/* Events & Venues Section (Valima only) */}
+      <EventsSection events={valimaData.events} />
 
       {/* RSVP, Compliments & Thank You wrapped in decorative background */}
       <div
         style={{
-          background: `linear-gradient(to bottom, #fffbf7 0%, rgba(255, 255, 255, 0.65) 120px, rgba(255, 255, 255, 0.65) 100%), url(${invitationData.media.backgroundImage})`,
+          background: `linear-gradient(to bottom, #fffbf7 0%, rgba(255, 255, 255, 0.65) 120px, rgba(255, 255, 255, 0.65) 100%), url(${valimaData.media.backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }}
       >
         {/* RSVP Section */}
-        <RsvpSection rsvpData={invitationData.rsvp} />
+        <RsvpSection rsvpData={valimaData.rsvp} />
 
         {/* Best Compliments Section */}
-        <ComplimentsSection compliments={invitationData.compliments} />
+        <ComplimentsSection compliments={valimaData.compliments} />
 
         {/* Thank You Section */}
-        <ThankYouSection thankYou={invitationData.thankYou} />
+        <ThankYouSection thankYou={valimaData.thankYou} />
       </div>
 
       {/* Footer */}
-      <Footer footer={invitationData.footer} />
+      <Footer footer={valimaData.footer} />
     </>
   );
 }
