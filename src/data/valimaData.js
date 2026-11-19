@@ -1,7 +1,7 @@
 export const valimaData = {
   // Couple Information
   bride: {
-    fullName: "Adiba Noorin",
+    fullName: "Daughter of",
     parents: "Mrs. & Mr. Chand Pasha",
   },
   groom: {

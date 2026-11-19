@@ -6,7 +6,7 @@ export default function EventsSection({ events }) {
     <section className="venue-section">
       <div className="venue-container scroll-animate">
         <p className="events-kicker">A day to remember</p>
-        <h2 className="venue-title">Events &amp; Venues</h2>
+        <h2 className="venue-title">Valima Celebration</h2>
 
         <div className="event-list">
           {events.map((event, index) => (

@@ -4,49 +4,24 @@ export default function Footer({ footer }) {
   const { author, instagramUrl } = footer;
 
   return (
-    <div
-      style={{
-        backgroundColor: '#0d0d0d',
-        padding: '18px',
-        textAlign: 'center',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '14px',
-        }}
-      >
-        <div
-          style={{
-            flex: 1,
-            height: '1px',
-            background: 'linear-gradient(90deg, transparent, #e5a0ae)',
-          }}
-        />
+    <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-divider" aria-hidden="true" />
 
         {instagramUrl && (
           <a
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              textDecoration: 'none',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              color: '#e5a0ae',
-              fontSize: '0.85rem',
-              fontWeight: 500,
-            }}
+            className="footer-author"
+            aria-label={`Follow ${author} on Instagram`}
           >
             <svg
-              width="14"
-              height="14"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
+              aria-hidden="true"
             >
               <rect
                 x="2"
@@ -54,30 +29,24 @@ export default function Footer({ footer }) {
                 width="20"
                 height="20"
                 rx="6"
-                stroke="#e5a0ae"
+                stroke="currentColor"
                 strokeWidth="1.8"
               />
               <circle
                 cx="12"
                 cy="12"
                 r="5"
-                stroke="#e5a0ae"
+                stroke="currentColor"
                 strokeWidth="1.8"
               />
-              <circle cx="17.5" cy="6.5" r="1.2" fill="#e5a0ae" />
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
             </svg>
-            <span>{author || 'Awesome Creation'}</span>
+            <span>{author || 'First basket'}</span>
           </a>
         )}
 
-        <div
-          style={{
-            flex: 1,
-            height: '1px',
-            background: 'linear-gradient(90deg, #e5a0ae, transparent)',
-          }}
-        />
+        <div className="footer-divider" aria-hidden="true" />
       </div>
-    </div>
+    </footer>
   );
 }

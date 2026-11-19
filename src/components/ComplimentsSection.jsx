@@ -18,9 +18,7 @@ export default function ComplimentsSection({ compliments }) {
           <div className="comp-family-list">
             {familyMembers.map((member, index) => (
               <div key={index} className="comp-member">
-                <p className="comp-name" style={{ fontWeight: 600 }}>
-                  {member.name}
-                </p>
+                <p className="comp-name">{member.name}</p>
                 {member.role && (
                   <p className="comp-role">{member.role}</p>
                 )}

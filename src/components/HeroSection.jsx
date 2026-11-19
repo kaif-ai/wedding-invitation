@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Icon } from '@iconify/react';
 import confetti from 'canvas-confetti';
+import valimaData from '../data/valimaData';
 
 export default function HeroSection({
   videoSrc,
@@ -10,6 +11,7 @@ export default function HeroSection({
   const videoRef = useRef(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [isRevealed, setIsRevealed] = useState(false);
+  const [showNames, setShowNames] = useState(false);
 
   const handleOpen = () => {
     setHasStarted(true);
@@ -20,30 +22,46 @@ export default function HeroSection({
       video.play().catch(() => {});
     }
 
-    // Celebrate with confetti
+    // Celebrate with confetti - refined palette
     confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#e5a0ae', '#f3b6c3', '#faf2e6', '#d4af37', '#ffffff', '#c43360'],
+      particleCount: 80,
+      spread: 60,
+      origin: { y: 0.55 },
+      colors: ['#d4b884', '#c99a9a', '#faf7f0', '#b8965c', '#fdfcf7', '#8a9a7f'],
+      scalar: 0.9,
+      drift: 0.1,
     });
 
     if (onOpenInvitation) {
       onOpenInvitation();
     }
 
-    // Reveal names overlay after a brief delay
+    // Reveal text overlay
     setTimeout(() => {
       setIsRevealed(true);
-    }, 1200);
+    }, 600);
+
+    // Reveal names after text
+    setTimeout(() => {
+      setShowNames(true);
+    }, 1400);
   };
 
   const handleTimeUpdate = () => {
     const video = videoRef.current;
     if (video && video.currentTime > 1.2 && !isRevealed) {
       setIsRevealed(true);
+      setTimeout(() => setShowNames(true), 800);
     }
   };
+
+  // Fade out play overlay
+  useEffect(() => {
+    if (hasStarted) {
+      const overlay = document.getElementById('playOverlay');
+      if (overlay) overlay.classList.add('faded');
+    }
+  }, [hasStarted]);
 
   return (
     <section className="hero-section">
@@ -86,6 +104,15 @@ export default function HeroSection({
             </blockquote>
             <p className="hero-verse-reference">Surah Ar-Rum · 30:21</p>
           </div>
+
+          {/* Couple names - elegant reveal */}
+          {showNames && (
+            <>
+              <h1 className="hero-names" aria-label={`${valimaData.bride.fullName} and ${valimaData.groom.fullName}`}>
+                {valimaData.bride.fullName} <span className="hero-ampersand">&</span> {valimaData.groom.fullName}
+              </h1>
+            </>
+          )}
         </div>
 
         <a

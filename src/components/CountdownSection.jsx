@@ -26,11 +26,13 @@ export default function CountdownSection({
   const triggerCelebration = () => {
     setShowCountdown(true);
     confetti({
-      particleCount: 300,
-      spread: 180,
-      startVelocity: 45,
-      origin: { y: 0.6 },
-      colors: ['#e5a0ae', '#f3b6c3', '#faf2e6', '#d4af37', '#ffffff', '#c43360'],
+      particleCount: 200,
+      spread: 120,
+      startVelocity: 40,
+      origin: { y: 0.55 },
+      colors: ['#d4b884', '#c99a9a', '#faf7f0', '#b8965c', '#fdfcf7', '#8a9a7f'],
+      scalar: 0.95,
+      drift: 0.15,
     });
 
     setTimeout(() => {
@@ -88,7 +90,7 @@ export default function CountdownSection({
   }, [targetDate]);
 
   return (
-    <section className="scratch-section countdown-section">
+    <section className="countdown-section">
       {/* Background Video / Image */}
       <video
         className="bg-video"
@@ -101,7 +103,7 @@ export default function CountdownSection({
         <source src={videoSrc} type="video/mp4" />
       </video>
 
-      <div className="content-wrapper scroll-animate" style={{ zIndex: 2 }}>
+      <div className="content-wrapper scroll-animate">
         {/* Reveal Button */}
         <div className="reveal-btn-container stagger-anim delay-2">
           <button
@@ -137,29 +139,9 @@ export default function CountdownSection({
           id="hiddenCountdown"
           className={`hidden-countdown ${showCountdown ? 'show' : ''}`}
         >
-          <p
-            className="premium-font bismillah"
-            style={{
-              marginBottom: '10px',
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
-              fontSize: '0.85rem',
-              color: '#c43360',
-              fontWeight: '700',
-            }}
-          >
-            Save The Date
-          </p>
+          <p className="countdown-label">Save The Date</p>
 
-          <h2
-            className="couple-names countdown-date"
-            style={{
-              margin: '10px 0 30px 0',
-              fontSize: '2.2rem',
-              fontFamily: "'Cormorant Garamond', serif",
-              color: '#33252a',
-            }}
-          >
+          <h2 className="countdown-date">
             {displayDate}
           </h2>
 
